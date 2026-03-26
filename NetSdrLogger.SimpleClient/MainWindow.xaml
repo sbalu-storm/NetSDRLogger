@@ -1,0 +1,32 @@
+﻿<Window x:Class="NetSdrLogger.SimpleClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NetSdrLogger.SimpleClient"
+        mc:Ignorable="d"
+        Title="NetSDR Logger" Height="450" Width="700" Closed="Window_Closed">
+    <Grid>
+        <ListView Name="signalsListView" ItemsSource="{Binding SignalTransmittions}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime, StringFormat=yyyy.MM.dd HH:mm:ss}" Width="130">Start Time</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Duration}" Width="80">Duration</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AvgFrequency, StringFormat=0.###}" Width="120">Avg Frequency, mHz</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=MaxBandwidth, StringFormat=0.#}" Width="120">Max Bandwidth, kHz</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AvgSNR, StringFormat=0.##}" Width="100">Avg SNR</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TransmittionCount}" Width="50">Count</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=IsActive}">IsActive</GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
+            </ListView.Resources>
+        </ListView>
+
+    </Grid>
+</Window>
