@@ -1,4 +1,5 @@
 ﻿using NetSdrLogger.Model.SignalSource;
+using NetSdrLogger.SimpleClient.ViewModel;
 using NetSdrLoggerConsole.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

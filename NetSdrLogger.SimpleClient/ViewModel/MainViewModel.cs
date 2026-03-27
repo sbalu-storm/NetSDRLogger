@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Threading;
 
-namespace NetSdrLogger.SimpleClient
+namespace NetSdrLogger.SimpleClient.ViewModel
 {
     public class MainViewModel : BaseViewModel, IDisposable
     {
@@ -46,7 +46,7 @@ namespace NetSdrLogger.SimpleClient
 
         private void _collectionService_OnSignalTransmittionAdded(SignalTransmittion latestTransmittion)
         {
-            LoggerFactory.GetLogger().Info($"Transmittion Added: Time: {latestTransmittion.StartTime:HH:mm:ss.fff} to {latestTransmittion.EndTime:ss.fff}, IsActive: {latestTransmittion.IsActive}, Freq: {(latestTransmittion.AvgFrequency / 1000000):F3} mHz, BW: {latestTransmittion.MaxBandwidth / 1000:F2} kHz, SNR: {latestTransmittion.AvgSNR:F2} dB, Signals:{latestTransmittion.TransmittionCount}");
+            LoggerFactory.GetLogger().Info($"Transmittion Added: Time: {latestTransmittion.StartTime:HH:mm:ss.fff} to {latestTransmittion.EndTime:ss.fff}, IsActive: {latestTransmittion.IsActive}, Freq: {latestTransmittion.AvgFrequency / 1000000:F3} mHz, BW: {latestTransmittion.MaxBandwidth / 1000:F2} kHz, SNR: {latestTransmittion.AvgSNR:F2} dB, Signals:{latestTransmittion.TransmittionCount}");
             var latestVmSignalTransmittion = new ViewModelSignalTransmittion(latestTransmittion);
 
             _dispatcher.Invoke(() =>
@@ -57,7 +57,7 @@ namespace NetSdrLogger.SimpleClient
 
         private void _collectionService_OnSignalTransmittionChanged(SignalTransmittion latestTransmittion)
         {
-            LoggerFactory.GetLogger().Info($"Transmittion Changed: Time: {latestTransmittion.StartTime:HH:mm:ss.fff} to {latestTransmittion.EndTime:ss.fff}, IsActive: {latestTransmittion.IsActive}, Freq: {(latestTransmittion.AvgFrequency / 1000000):F3} mHz, BW: {latestTransmittion.MaxBandwidth / 1000:F2} kHz, SNR: {latestTransmittion.AvgSNR:F2} dB, Signals:{latestTransmittion.TransmittionCount}");
+            LoggerFactory.GetLogger().Info($"Transmittion Changed: Time: {latestTransmittion.StartTime:HH:mm:ss.fff} to {latestTransmittion.EndTime:ss.fff}, IsActive: {latestTransmittion.IsActive}, Freq: {latestTransmittion.AvgFrequency / 1000000:F3} mHz, BW: {latestTransmittion.MaxBandwidth / 1000:F2} kHz, SNR: {latestTransmittion.AvgSNR:F2} dB, Signals:{latestTransmittion.TransmittionCount}");
             _dispatcher.Invoke(() =>
             {
                 lock (latestTransmittion)

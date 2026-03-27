@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace NetSdrLogger.SimpleClient
+namespace NetSdrLogger.SimpleClient.ViewModel
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NetSdrLogger.Model.SignalSource;
+using NetSdrLogger.SimpleClient.ViewModel;
 using NetSdrLoggerConsole.Models;
 using System.Windows;
 
