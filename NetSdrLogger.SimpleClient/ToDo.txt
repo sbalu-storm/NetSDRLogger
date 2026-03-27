@@ -1,36 +1,39 @@
-﻿            //byte sequence correctly translated to header and dataitem
-            //dataitem correctly translated to a single_collection
+﻿//todo
+// 1. Tests
+// 2. ColumnSort
 
-            //two dataitems correctly translated to a single_collection
-            //two dataitems correctly translated to two collections
-            //three dataitems correctly translated to two collections
+// TESTS:
+//byte sequence correctly translated to header and dataitem
+//dataitem correctly translated to a single_collection
 
-            //collection aggregation works fine: 
-            //in frequence scope, out of frequency scope
+//two dataitems correctly translated to a single_collection
+//two dataitems correctly translated to two collections
+//three dataitems correctly translated to two collections
 
-            // average frequency, other avg calculated correctly
+//collection aggregation works fine: 
+//in frequence scope, out of frequency scope
 
-            // average frequency handled correctly: averagefreq is the bounds to agregate new signal or not
+// average frequency, other avg calculated correctly
 
-            //Unix?DateTime is handled correctly
+// average frequency handled correctly: averagefreq is the bounds to agregate new signal or not
 
-            //TCP socket mocked stream is handled correctly
-            // for one message
-            // for several messages : 
-            //      two good messages
-            //      bad,two good,bad,good messages
-            //      good with error message
-            // for one data item
-            // for several data items
+//Unix?DateTime is handled correctly
+
+//TCP socket mocked stream is handled correctly
+// for one message
+// for several messages : 
+//      two good messages
+//      bad,two good,bad,good messages
+//      good with error message
+// for one data item
+// for several data items
 
 
 
 
-            // +++ check if we need to send request message to the socket
-            // +++ ensure system stays alive on socket exception
-            // +++ ensure system stays alive on data process exception
-            // +++ ensure system stays alive on unhandled exception
-            // +++ !! MT COLLECTIONS ARE HANDLED CORRECTLY, CHECK
+// +++ check if we need to send request message to the socket
+// +++ ensure system stays alive on socket exception
+// +++ ensure system stays alive on data process exception
+// +++ ensure system stays alive on unhandled exception
 
-            // +++++++ columnsort
-            // +++++++ DI
+// +++++++ columnsort
