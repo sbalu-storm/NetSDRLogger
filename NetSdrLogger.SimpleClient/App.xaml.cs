@@ -22,7 +22,7 @@ namespace NetSdrLogger.SimpleClient
                 serviceCollection
                     .AddSingleton<ISignalSource, RandomSignalSource>()
                     .AddSingleton<ICollectionService, CollectionService>()
-                    //.AddSingleton<MainViewModel>()
+                    .AddSingleton<MainViewModel>()
                     .AddSingleton<MainWindow>();
 
             }
@@ -31,15 +31,14 @@ namespace NetSdrLogger.SimpleClient
                 serviceCollection
                     .AddSingleton<ISignalSource, TCPSignalSource>((ISignalSource) => new TCPSignalSource("127.0.0.1", 5000))
                     .AddSingleton<ICollectionService, CollectionService>()
-                    //.AddSingleton<MainViewModel>()
+                    .AddSingleton<MainViewModel>()
                     .AddSingleton<MainWindow>();
             }
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-            //var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
-            //mainWindow.DataContext = mainViewModel;
+            var mainViewModel = serviceProvider.GetRequiredService<MainViewModel>();
 
             mainWindow.Show();
             base.OnStartup(e);
