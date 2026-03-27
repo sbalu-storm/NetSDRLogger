@@ -14,7 +14,6 @@ namespace NetSdrLogger.Model.SignalSource
 
         public RandomSignalSource()
         {
-            Start();
         }
 
         public void Start()

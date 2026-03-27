@@ -13,6 +13,7 @@ namespace NetSdrLogger.SimpleClient
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         ICollectionService CollectionService { set; get; }
         ISignalSource SignalSource { set; get; }
 
@@ -23,19 +24,19 @@ namespace NetSdrLogger.SimpleClient
             private set => SetProperty(ref _signalTransmittions, value);
         }
 
-        public MainWindow()
+        public MainWindow(ISignalSource signalSource, ICollectionService collectionService)
         {
             InitializeComponent();
 
             DataContext = this;
 
-            SignalSource = new RandomSignalSource();
-            //SignalSource = new TCPSignalSource("127.0.0.1", 5000);
+            SignalSource = signalSource;
+            CollectionService = collectionService;
 
-            CollectionService = new CollectionService(SignalSource);
-            
             CollectionService.OnSignalTransmittionAdded += _collectionService_OnSignalTransmittionAdded;
             CollectionService.OnSignalTransmittionChanged += _collectionService_OnSignalTransmittionChanged;
+
+            signalSource.Start();
         }
 
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)

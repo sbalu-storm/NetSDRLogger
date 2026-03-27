@@ -1,4 +1,5 @@
 ﻿using NetSdrLoggerConsole.Models;
+using System.Collections.Concurrent;
 
 namespace NetSdrLogger.Model.NetSDR
 {
@@ -6,7 +7,7 @@ namespace NetSdrLogger.Model.NetSDR
     {
         Queue<byte> _data = new();
 
-        public Queue<Signal> Signals { set; get; } = new(); // todo MT_LOCK
+        public ConcurrentQueue<Signal> Signals { set; get; } = new();
         public ByteQueueNetSdrParser(Queue<byte> data) 
         {
             _data = data;

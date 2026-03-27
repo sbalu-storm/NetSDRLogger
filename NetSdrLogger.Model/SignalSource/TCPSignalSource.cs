@@ -17,7 +17,6 @@ namespace NetSdrLogger.Model.SignalSource
         {
             _serverIp = serverIp;
             _port = port;
-            Start();
         }
 
         public void Start()
